@@ -4,7 +4,6 @@
 # Note: Added CSV lables to dataset just for readability.
 
 # Import libraries
-from numpy import loadtxt
 import pandas as pd
 from keras.models import Sequential
 from keras.layers import Dense
