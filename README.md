@@ -1,4 +1,4 @@
-# keras_mushroom_model
+# Keras Mushroom Model
 
 Uses mushroom data to create a model. Uses binary classification to determine 
 whether a mushroom is edible or not. Uses neural networks using Keras library.
