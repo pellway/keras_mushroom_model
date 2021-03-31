@@ -6,5 +6,5 @@ Dataset used: https://archive.ics.uci.edu/ml/datasets/Mushroom
   
 Note: Added CSV lables to dataset just for readability.
 
-![alt text](https://github.com/pellway/LOVE-Game/blob/master/accuracy.png?raw=true)
-![alt text](https://github.com/pellway/LOVE-Game/blob/master/loss.png?raw=true)
+![alt text](https://github.com/pellway/keras_mushroom_model/blob/master/accuracy.png?raw=true)
+![alt text](https://github.com/pellway/keras_mushroom_model/blob/master/loss.png?raw=true)
