@@ -5,6 +5,7 @@
 
 # Import libraries
 import pandas as pd
+import matplotlib.pyplot as plt
 from keras.models import Sequential
 from keras.layers import Dense
 
@@ -21,22 +22,37 @@ for col_name in df.columns:
 # # split into input (X) and output (y) variables
 X = df.drop(columns=['edible'])
 y = df[['edible']].copy()
-# print(X)
-# print(y)
 
 # Create Keras model using layers
 model = Sequential()
-model.add(Dense(14, input_dim=22, activation='relu'))
-model.add(Dense(6, activation='relu'))
+model.add(Dense(18, input_dim=22, activation='relu'))
+model.add(Dense(6, activation='sigmoid'))
 model.add(Dense(1, activation='sigmoid'))
 
 # Compile Keras model
 model.compile(loss='binary_crossentropy', optimizer='adam', metrics=['accuracy'])
 
 # Fit Keras model on dataset
-epochsVar = 20
-batchSizeVar = 20
-model.fit(X, y, epochs=epochsVar, batch_size=batchSizeVar)
+history = model.fit(X, y, validation_split=0.10, epochs=30, batch_size=10, verbose=0)
+
+# summarize history for accuracy
+plt.plot(history.history['accuracy'])
+plt.plot(history.history['val_accuracy'])
+plt.title('model accuracy')
+plt.ylabel('accuracy')
+plt.xlabel('epoch')
+plt.legend(['train', 'test'], loc='upper left')
+plt.savefig("accuracy.png")
+plt.clf()
+
+# summarize history for loss
+plt.plot(history.history['loss'])
+plt.plot(history.history['val_loss'])
+plt.title('model loss')
+plt.ylabel('loss')
+plt.xlabel('epoch')
+plt.legend(['train', 'test'], loc='upper left')
+plt.savefig("loss.png")
 
 # Evaluate Keras model
 accuracy = model.evaluate(X, y)
